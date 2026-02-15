@@ -1,4 +1,4 @@
-"""Test configuration for ssrs_toolbox."""
+"""Test configuration for ssres_toolbox."""
 
 import os
 

@@ -1,4 +1,4 @@
-"""Standalone loss functions for SSRS projects.
+"""Standalone loss functions for SSRES projects.
 
 Self-contained PyTorch modules with no internal project dependencies.
 Includes kernel smoothness, masked MSE, and normalized (scale-invariant) losses.

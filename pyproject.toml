@@ -15,9 +15,9 @@ classifiers = [
 dependencies = [
   "torch>=2.7.0",
 ]
-description = "Standalone neural network building blocks for SSRS projects."
+description = "Standalone neural network building blocks for SSRES projects."
 license = {text = "MIT License"}
-name = "ssrs-toolbox"
+name = "ssres-toolbox"
 readme = "README.md"
 requires-python = ">=3.12"
 version = "0.1.0"
@@ -37,7 +37,7 @@ url = "https://download.pytorch.org/whl/cu128"
 torch = [{index = "pytorch-cu128"}]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/ssrs_toolbox"]
+packages = ["src/ssres_toolbox"]
 
 [tool.pytest.ini_options]
 pythonpath = [".", "src"]
@@ -56,6 +56,7 @@ ignore = [
   "N806",
   "N812",
   "RUF022",
+  "RUF059",
   "S101",
 ]
 select = [

@@ -1,18 +1,18 @@
-# SSRS Toolbox
+# SSRES Toolbox
 
 Standalone neural network building blocks for [Self-Supervised Restoration Studio](https://github.com/Self-Supervised-Restoration-Studio) projects. PyTorch-only, no framework lock-in.
 
 ## Install
 
 ```bash
-uv add git+https://github.com/Self-Supervised-Restoration-Studio/ssrs_toolbox.git
+uv add git+https://github.com/Self-Supervised-Restoration-Studio/ssres_toolbox.git
 ```
 
 Or for development:
 
 ```bash
-git clone https://github.com/Self-Supervised-Restoration-Studio/ssrs_toolbox.git
-cd ssrs_toolbox
+git clone https://github.com/Self-Supervised-Restoration-Studio/ssres_toolbox.git
+cd ssres_toolbox
 uv sync --extra dev
 ```
 
@@ -69,7 +69,7 @@ uv sync --extra dev
 ## Usage
 
 ```python
-from ssrs_toolbox import (
+from ssres_toolbox import (
     NAFBlock3D,
     PixelShuffle3d,
     SimpleGate3D,
@@ -83,24 +83,24 @@ self.block = NAFBlock3D(channels=64)
 
 ## Ecosystem
 
-`ssrs_toolbox` is the shared foundation for the Self-Supervised Restoration Studio:
+`ssres_toolbox` is the shared foundation for the Self-Supervised Restoration Studio:
 
 ```
-ssrs_toolbox              ← shared neural-network building blocks (this repo)
- ├── gap_bit2bit_ssrs     ← photon-splitting strategies & losses (plugin)
- ├── deblur_inr_ssrs      ← blind deblurring via INR (plugin)
- └── ssrs                 ← framework: config, training, export, plugin discovery
+ssres_toolbox              ← shared neural-network building blocks (this repo)
+ ├── gap_bit2bit_ssres     ← photon-splitting strategies & losses (plugin)
+ ├── deblur_inr_ssres      ← blind deblurring via INR (plugin)
+ └── ssres                 ← framework: config, training, export, plugin discovery
 ```
 
-Plugins depend on `ssrs_toolbox` for reusable components and declare
-`[project.entry-points."ssrs.plugins"]` so `ssrs` can discover them at runtime.
+Plugins depend on `ssres_toolbox` for reusable components and declare
+`[project.entry-points."ssres.plugins"]` so `ssres` can discover them at runtime.
 
 | Repository | Description | Link |
 |-----------|-------------|------|
-| **ssrs_toolbox** | PyTorch building blocks | [GitHub](https://github.com/Self-Supervised-Restoration-Studio/ssrs_toolbox) |
-| **gap_bit2bit_ssrs** | GAP/Bit2Bit photon denoising | [GitHub](https://github.com/Self-Supervised-Restoration-Studio/gap_bit2bit_ssrs) |
-| **deblur_inr_ssrs** | Blind deblurring via implicit neural representations | [GitHub](https://github.com/Self-Supervised-Restoration-Studio/deblur_inr_ssrs) |
-| **ssrs** | Framework: training, export, CLI | [GitHub](https://github.com/Self-Supervised-Restoration-Studio/ssrs) |
+| **ssres_toolbox** | PyTorch building blocks | [GitHub](https://github.com/Self-Supervised-Restoration-Studio/ssres_toolbox) |
+| **gap_bit2bit_ssres** | GAP/Bit2Bit photon denoising | [GitHub](https://github.com/Self-Supervised-Restoration-Studio/gap_bit2bit_ssres) |
+| **deblur_inr_ssres** | Blind deblurring via implicit neural representations | [GitHub](https://github.com/Self-Supervised-Restoration-Studio/deblur_inr_ssres) |
+| **ssres** | Framework: training, export, CLI | [GitHub](https://github.com/Self-Supervised-Restoration-Studio/ssres) |
 
 ## Requirements
 

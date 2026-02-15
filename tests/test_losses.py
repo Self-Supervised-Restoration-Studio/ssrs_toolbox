@@ -1,9 +1,9 @@
-"""Tests for ssrs_toolbox.losses."""
+"""Tests for ssres_toolbox.losses."""
 
 import pytest
 import torch
 
-from ssrs_toolbox.losses import (
+from ssres_toolbox.losses import (
     MaskedMSELoss,
     NormalizedL1Loss,
     NormalizedMSELoss,

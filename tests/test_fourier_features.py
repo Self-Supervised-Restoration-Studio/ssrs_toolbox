@@ -3,7 +3,7 @@
 import pytest
 import torch
 
-from ssrs_toolbox.fourier_features import (
+from ssres_toolbox.fourier_features import (
     FourierFeatureEncoding,
     GaussianFourierFeatures,
     IntegratedPositionalEncoding,

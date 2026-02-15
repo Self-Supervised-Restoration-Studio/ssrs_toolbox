@@ -2,7 +2,7 @@
 
 import torch
 
-from ssrs_toolbox.stochastic import MergeLayer, StochasticLayer, StochasticOutput
+from ssres_toolbox.stochastic import MergeLayer, StochasticLayer, StochasticOutput
 
 
 class TestStochasticLayer:

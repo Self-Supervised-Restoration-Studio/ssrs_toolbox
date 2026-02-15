@@ -2,7 +2,7 @@
 
 import torch
 
-from ssrs_toolbox import LaplacianPyramid, MultiScalePyramid, create_scale_space
+from ssres_toolbox import LaplacianPyramid, MultiScalePyramid, create_scale_space
 
 
 class TestMultiScalePyramid5D:

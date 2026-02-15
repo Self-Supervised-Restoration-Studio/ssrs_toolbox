@@ -2,7 +2,7 @@
 
 import pytest
 
-from ssrs_toolbox import LearnableKernel, SIRENKernelEstimator
+from ssres_toolbox import LearnableKernel, SIRENKernelEstimator
 
 
 class TestSIRENKernelEstimator3D:

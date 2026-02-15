@@ -2,7 +2,7 @@
 
 import torch
 
-from ssrs_toolbox.gated_residual import GatedResidualBlock3D
+from ssres_toolbox.gated_residual import GatedResidualBlock3D
 
 
 class TestGatedResidualBlock3D:

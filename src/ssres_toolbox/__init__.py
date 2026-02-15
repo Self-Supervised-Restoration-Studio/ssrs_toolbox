@@ -1,6 +1,6 @@
-"""SSRS Toolbox - Standalone neural network building blocks.
+"""SSRES Toolbox - Standalone neural network building blocks.
 
-Provides specialized neural network components for SSRS projects.
+Provides specialized neural network components for SSRES projects.
 All components are self-contained with minimal dependencies (PyTorch only).
 
 Components:
@@ -14,7 +14,7 @@ Components:
 - Utility functions
 
 Example:
-    from ssrs_toolbox import (
+    from ssres_toolbox import (
         PixelShuffle3d,
         NAFBlock3D,
         SimpleGate3D,

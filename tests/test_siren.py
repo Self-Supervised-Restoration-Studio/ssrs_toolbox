@@ -4,7 +4,7 @@ import math
 
 import torch
 
-from ssrs_toolbox.siren import (
+from ssres_toolbox.siren import (
     SineLayer,
     SirenKernelNet,
     SirenNetwork,
