@@ -1,0 +1,72 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[project]
+authors = [{name = "Yehe Liu", email = "yehe@case.edu"}]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+  "torch>=2.7.0",
+]
+description = "Standalone neural network building blocks for SSRS projects."
+license = {text = "MIT License"}
+name = "ssrs-toolbox"
+readme = "README.md"
+requires-python = ">=3.12"
+version = "0.1.0"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.2",
+  "ruff>=0.3.0",
+]
+
+[[tool.uv.index]]
+explicit = true
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+
+[tool.uv.sources]
+torch = [{index = "pytorch-cu128"}]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ssrs_toolbox"]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+ignore = [
+  "E501",
+  "E741",
+  "ERA001",
+  "N803",
+  "N806",
+  "N812",
+  "RUF022",
+  "S101",
+]
+select = [
+  "E",
+  "F",
+  "I",
+  "N",
+  "RUF",
+  "UP",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/*" = ["S101"]
