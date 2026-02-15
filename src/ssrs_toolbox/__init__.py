@@ -101,11 +101,17 @@ from .kernel_estimator import (
 
 # Losses
 from .losses import (
+    EPSILON,
+    LOG_EPSILON,
+    MAX_EXP,
+    MIN_EXP,
     MaskedMSELoss,
     NormalizedL1Loss,
     NormalizedMSELoss,
     SmoothnessLoss,
+    logsumexp_mean,
     safe_exp,
+    safe_log,
 )
 
 # Normalization
@@ -242,12 +248,18 @@ __all__ = [
     "SIRENKernelEstimator",
     "LearnableKernel",
     "GaussianKernelEstimator",
-    # Losses
+    # Losses & numerical utilities
+    "EPSILON",
+    "LOG_EPSILON",
+    "MAX_EXP",
+    "MIN_EXP",
     "SmoothnessLoss",
     "MaskedMSELoss",
     "NormalizedMSELoss",
     "NormalizedL1Loss",
     "safe_exp",
+    "safe_log",
+    "logsumexp_mean",
     # Pyramids
     "MultiScalePyramid",
     "GaussianPyramid",

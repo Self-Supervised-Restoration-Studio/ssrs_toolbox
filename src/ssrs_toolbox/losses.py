@@ -6,6 +6,7 @@ Includes kernel smoothness, masked MSE, and normalized (scale-invariant) losses.
 
 from __future__ import annotations
 
+import math
 from typing import Final
 
 import torch
@@ -17,6 +18,7 @@ from torch import Tensor
 # ---------------------------------------------------------------------------
 
 EPSILON: Final[float] = 1e-8
+LOG_EPSILON: Final[float] = -18.42  # log(1e-8)
 MAX_EXP: Final[float] = 88.0  # Maximum safe value for exp() to avoid overflow
 MIN_EXP: Final[float] = -88.0  # Minimum safe value for exp() to avoid underflow
 
@@ -29,6 +31,33 @@ def safe_exp(x: Tensor, max_val: float = MAX_EXP) -> Tensor:
     :returns: Clamped exponential
     """
     return torch.exp(torch.clamp(x, min=MIN_EXP, max=max_val))
+
+
+def safe_log(x: Tensor, eps: float = EPSILON) -> Tensor:
+    """Numerically stable logarithm.
+
+    :param x: Input tensor
+    :param eps: Minimum clamp value to avoid log(0)
+    :returns: Clamped logarithm
+    """
+    return torch.log(torch.clamp(x, min=eps))
+
+
+def logsumexp_mean(x: Tensor, dims: tuple[int, ...], keepdim: bool = True) -> Tensor:
+    """Compute log(mean(exp(x))) using numerically stable log-sum-exp.
+
+    Equivalent to ``torch.log(torch.mean(torch.exp(x)))`` but stable.
+
+    :param x: Input tensor
+    :param dims: Dimensions to reduce
+    :param keepdim: Whether to keep reduced dimensions
+    :returns: log-mean-exp result
+    """
+    n_elements = 1
+    for d in dims:
+        n_elements *= x.shape[d]
+    log_n = math.log(n_elements)
+    return torch.logsumexp(x, dim=dims, keepdim=keepdim) - log_n
 
 
 # ---------------------------------------------------------------------------

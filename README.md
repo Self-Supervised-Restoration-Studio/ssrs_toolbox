@@ -64,7 +64,7 @@ uv sync --extra dev
 
 | Module | Key exports | Description |
 |--------|------------|-------------|
-| `losses` | `SmoothnessLoss`, `MaskedMSELoss`, `NormalizedMSELoss`, `NormalizedL1Loss` | Kernel smoothness penalty, masked MSE, and scale-invariant normalized losses |
+| `losses` | `SmoothnessLoss`, `MaskedMSELoss`, `NormalizedMSELoss`, `NormalizedL1Loss`, `safe_exp`, `safe_log`, `logsumexp_mean` | Losses and numerical stability utilities (`EPSILON`, `LOG_EPSILON`, `MAX_EXP`, `MIN_EXP`) |
 
 ## Usage
 
@@ -80,6 +80,27 @@ from ssrs_toolbox import (
 self.upsample = PixelShuffle3d(scale_factor=2)
 self.block = NAFBlock3D(channels=64)
 ```
+
+## Ecosystem
+
+`ssrs_toolbox` is the shared foundation for the Self-Supervised Restoration Studio:
+
+```
+ssrs_toolbox              ← shared neural-network building blocks (this repo)
+ ├── gap_bit2bit_ssrs     ← photon-splitting strategies & losses (plugin)
+ ├── deblur_inr_ssrs      ← blind deblurring via INR (plugin)
+ └── ssrs                 ← framework: config, training, export, plugin discovery
+```
+
+Plugins depend on `ssrs_toolbox` for reusable components and declare
+`[project.entry-points."ssrs.plugins"]` so `ssrs` can discover them at runtime.
+
+| Repository | Description | Link |
+|-----------|-------------|------|
+| **ssrs_toolbox** | PyTorch building blocks | [GitHub](https://github.com/Self-Supervised-Restoration-Studio/ssrs_toolbox) |
+| **gap_bit2bit_ssrs** | GAP/Bit2Bit photon denoising | [GitHub](https://github.com/Self-Supervised-Restoration-Studio/gap_bit2bit_ssrs) |
+| **deblur_inr_ssrs** | Blind deblurring via implicit neural representations | [GitHub](https://github.com/Self-Supervised-Restoration-Studio/deblur_inr_ssrs) |
+| **ssrs** | Framework: training, export, CLI | [GitHub](https://github.com/Self-Supervised-Restoration-Studio/ssrs) |
 
 ## Requirements
 
